@@ -164,16 +164,16 @@ def chat():
     # log.info("[FeiShu] chat_headers={}".format(str(request.headers)))
     log.info("[FeiShu] chat={}".format(str(request.data)))
     obj = json.loads(request.data)
-    if not obj:
-        return {'ret': 201}
-    # 校验 verification token 是否匹配，token 不匹配说明该回调并非来自开发平台
-    headers = obj.get("header")
-    if not headers:
-        return {'ret': 201}
-    token = headers.get("token", "")
-    if token != feishu.verification_token:
-        log.error("verification token not match, token = {}", token)
-        return {'ret': 201}
+#    if not obj:
+#        return {'ret': 201}
+#    # 校验 verification token 是否匹配，token 不匹配说明该回调并非来自开发平台
+#    headers = obj.get("header")
+#    if not headers:
+#        return {'ret': 201}
+#    token = headers.get("token", "")
+#    if token != feishu.verification_token:
+#        log.error("verification token not match, token = {}", token)
+#        return {'ret': 201}
 
     # 根据 type 处理不同类型事件
     t = obj.get("type", "")
